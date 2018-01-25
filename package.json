@@ -1,0 +1,32 @@
+{
+  "name": "tinyxml",
+  "version": "1.0.0",
+  "description": "A convertor between XML text and Javascript object / JSON text",
+  "main": "tinyxml.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/painlessjs/tinyxml.git"
+  },
+  "keywords": [
+    "xml",
+    "json"
+  ],
+  "author": "pixcai<pixcai@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/painlessjs/tinyxml/issues"
+  },
+  "homepage": "https://github.com/painlessjs/tinyxml#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^22.1.4",
+    "webpack": "^3.10.0"
+  }
+}

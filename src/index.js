@@ -1,16 +1,18 @@
-export function xml2js() {
+import Converter from './converter';
+
+export async function xml2js(xml, _options) {
+  
+}
+
+export function xml2jsSync(xml, _options) {
 
 }
 
-export function xml2jsSync() {
+export async function js2xml(object, _options) {
 
 }
 
-export function js2xml() {
-
-}
-
-export function js2xmlSync() {
+export function js2xmlSync(object, _options) {
 
 }
 

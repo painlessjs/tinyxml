@@ -20,7 +20,7 @@ export const VersionNum = RegExp('1\\.\\d+');
  * 2.8 Prolog and Document Type Declaration
  * [24] VersionInfo	::= S 'version' Eq ("'" VersionNum "'" | '"' VersionNum '"')
  */
-export const VersionInfo = RegExp(`version${Eq.source}(?:'(${VersionNum.source})'|"(${VersionNum.source})")`);
+export const VersionInfo = RegExp(`version${Eq.source}(?:'${VersionNum.source}'|"${VersionNum.source}")`);
 
 /**
  * 4.3.3 Character Encoding in Entities
@@ -33,17 +33,19 @@ export const EncName = RegExp('[A-Za-z](?:[\\w\\.]|-)*');
  * 4.3.3 Character Encoding in Entities
  * [80] EncodingDecl ::= S 'encoding' Eq ('"' EncName '"' | "'" EncName "'" )
  */
-export const EncodingDecl = RegExp(`encoding${Eq.source}(?:'(${EncName.source})'|"(${EncName.source})")`);
+export const EncodingDecl = RegExp(`encoding${Eq.source}(?:'${EncName.source}'|"${EncName.source}")`);
+
+export const SD = RegExp('yes|no');
 
 /**
  * 2.9 Standalone Document Declaration
  * [32] SDDecl ::= S 'standalone' Eq (("'" ('yes' | 'no') "'") | ('"' ('yes' | 'no') '"'))
  */
-export const SDDecl = RegExp(`standalone${Eq.source}(?:'(yes|no)'|"(yes|no)")`);
+export const SDDecl = RegExp(`standalone${Eq.source}(?:'(?:${SD.source})'|"(?:${SD.source})")`);
 
 /**
  * 2.8 Prolog and Document Type Declaration
  * [23] XMLDecl	::= '<?xml' VersionInfo EncodingDecl? SDDecl? S? '?>'
  */
-export const XMLDecl = RegExp(`<\\?xml${S.source}${VersionInfo.source}(?:${S.source}(${EncodingDecl.source}))?(?:${S.source}(${SDDecl.source}))?(?:${S.source})?\\?>`);
+export const XMLDecl = RegExp(`<\\?xml${S.source}(${VersionInfo.source})(?:${S.source}(${EncodingDecl.source}))?(?:${S.source}(${SDDecl.source}))?(?:${S.source})?\\?>`);
 

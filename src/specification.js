@@ -35,13 +35,13 @@ export const EncName = RegExp('[A-Za-z](?:[\\w\\.]|-)*');
  */
 export const EncodingDecl = RegExp(`encoding${Eq.source}(?:'${EncName.source}'|"${EncName.source}")`);
 
-export const SD = RegExp('(?:yes|no)');
+export const SDValueRaw = RegExp('(?:yes|no)');
 
 /**
  * 2.9 Standalone Document Declaration
  * [32] SDDecl ::= S 'standalone' Eq (("'" ('yes' | 'no') "'") | ('"' ('yes' | 'no') '"'))
  */
-export const SDDecl = RegExp(`standalone${Eq.source}(?:'${SD.source}'|"${SD.source}")`);
+export const SDDecl = RegExp(`standalone${Eq.source}(?:'${SDValueRaw.source}'|"${SDValueRaw.source}")`);
 
 /**
  * 2.8 Prolog and Document Type Declaration

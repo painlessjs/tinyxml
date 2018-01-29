@@ -3,7 +3,7 @@ import _merge from 'lodash/merge';
 import {
   VersionNum,
   EncName,
-  SD,
+  SDValueRaw,
   XMLDecl
 } from './specification';
 
@@ -45,13 +45,13 @@ class XMLConverter extends Converter {
     const { setPropKey, setPropName } = this.options;
     const xmlProps = [{
       name: 'version',
-      exec: s => _get(VersionNum.exec(s), [0])
+      exec: input => _get(VersionNum.exec(input), [0])
     }, {
       name: 'encoding',
-      exec: s => _get(EncName.exec(s), [0])
+      exec: input => _get(EncName.exec(input), [0])
     }, {
       name: 'standalone',
-      exec: s => _get(SD.exec(s), [0])
+      exec: input => _get(SDValueRaw.exec(input), [0])
     }];
     let result = this._match(XMLDecl);
 
@@ -63,7 +63,7 @@ class XMLConverter extends Converter {
           const prop = xmlProps[i - 1].exec(result[i].split('=')[1]);
           
           if (prop) {
-            props[setPropName(xmlProps[i - 1].name)] = prop.trim();
+            props[setPropName(xmlProps[i - 1].name)] = prop;
           }
         }
       }
